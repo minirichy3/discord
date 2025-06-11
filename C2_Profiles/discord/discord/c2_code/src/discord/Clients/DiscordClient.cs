@@ -110,15 +110,6 @@ namespace discord.Clients
 
             if (discordMessage is not null && discordMessage.to_server) //It belongs to us
             {
-                try
-                {
-                    _ = message.DeleteAsync();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"[MessageReceivedAsync] {e.Message}");
-                }
-
                 await _mythicClient.SendToMythic(discordMessage.sender_id, discordMessage.message);
             }
         }
